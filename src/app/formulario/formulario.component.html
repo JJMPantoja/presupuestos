@@ -1,0 +1,16 @@
+<!-- El formulario se debe de monitorear con el evento ngSubmit donde se va a mandar a llamar la función de agregarValor()
+     Se va a manejar una referencia local con la etiqueta (#f) y se la asociamos al ngForm quedando  #f="ngForm"
+-->
+<form (ngSubmit)="f.form.valid && agregarValor()" #f="ngForm">
+    <div class="agregar">
+        <div class="agregar_contenedor">
+            <select [ngClass]="{'redfocus': tipo === 'egr'}" (change)="tipoOperacion($event)" class="agregar_tipo">
+                <option value="ing" selected>+</option>
+                <option value="egr">-</option>
+            </select>
+            <input [ngClass]="{'redfocus': tipo === 'egr'}" type="text" class="agregar_descripcion" placeholder="Agregar Descripción" name="descripcionInput" [(ngModel)]="descripcionInput" required>
+            <input [ngClass]="{'redfocus': tipo === 'egr'}" type="number" class="agregar_valor" placeholder="Valor" name="valorInput" [(ngModel)]="valorInput" required>
+            <button [ngClass]="{'red': tipo === 'egr'}" type="submit" class="agregar_btn"><i class="ion-ios-checkmark-outline"></i></button>
+        </div>
+    </div>
+  </form>
